@@ -1,1 +1,4 @@
 *.swp
+debugging.log
+target/
+target-eclipse/
