@@ -34,7 +34,6 @@ grails.mime.types = [
 
 // What URL patterns should be processed by the resources plugin
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
-grails.resources.debug = true
 
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
@@ -81,11 +80,15 @@ log4j = {
 
     root {
         debug 'debugging'
+        error 'stdout'
+        warn  'stdout'
     }
 
-    info 'org.zkoss.zk.grails'
+    info 'org.zkoss.zk.grails',
+         'com.github.wingyplus.todo'
 
-    warn 'org.zkoss.zk.grails'
+    warn 'org.zkoss.zk.grails',
+         'com.github.wingyplus.todo'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -98,5 +101,6 @@ log4j = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate',
-           'org.zkoss.zk.grails'
+           'org.zkoss.zk.grails',
+           'com.github.wingyplus.todo'
 }
