@@ -13,13 +13,22 @@ class TodoComposer extends GrailsComposer {
         def tasks = Task.list()
         if (tasks.size() > 0) {
             tasks.each { task ->
-                $('#taskList').append {
-                    delegate.window(id: "task_${task.id}", title: 'TODO', border: 'normal', closable: true, zclass: 'z-window-overlapped') {
-                        textbox(id: "subject_${task.id}", value: task.subject, inplace: true)
-                    }
-                }
+                addTaskToList(task)
             }
         }
+    }
+
+    def addTaskToList(task) {
+        // TODO: create databinding when subject change domain class will change it too.
+        $('#taskList').append {
+            window(id: "task_${task.id}", title: 'TODO', border: 'normal', closable: true, zclass: 'z-window-overlapped') {
+                textbox(id: "subject_${task.id}", value: task.subject, inplace: true)
+            }
+        }
+
+        $("#task_${task.id}").on('close', {
+            task.delete()
+        })
     }
 
     @Listen('onClick = button#createTask')
@@ -27,10 +36,6 @@ class TodoComposer extends GrailsComposer {
         def subject = $('#subject').text()
         def task = new Task(subject: subject).save()
 
-        $('#taskList').append {
-            window(id: "task_${task.id}", title: 'TODO', border: 'normal', closable: true, zclass: 'z-window-overlapped') {
-                textbox(id: "subject_${task.id}", value: task.subject, inplace: true)
-            }
-        }
+        addTaskToList(task)
     }
 }
