@@ -7,7 +7,7 @@ class UrlMappings {
 			}
 		}
 
-		"/"(view:"/index")
+		"/"(view:"/com/github/wingyplus/todo/todo.zul")
 		"500"(view:'/error')
 	}
 }

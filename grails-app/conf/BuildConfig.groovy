@@ -43,7 +43,7 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.7.2"
         runtime ":resources:1.1.6"
 
-        compile ":zk:2.0.1"
+        compile ":zk:2.0.2"
         test    ":spock:0.6"
 
         // Uncomment these (or add new ones) to enable additional resources capabilities

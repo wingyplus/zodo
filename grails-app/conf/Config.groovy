@@ -81,7 +81,6 @@ log4j = {
     root {
         debug 'debugging'
         error 'stdout'
-        warn  'stdout'
     }
 
     info 'org.zkoss.zk.grails',
