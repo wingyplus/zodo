@@ -1,11 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
-<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
-
 <zk xmlns="http://www.zkoss.org/2005/zul"
     xmlns:h="http://www.w3.org/1999/xhtml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+    <style>
+        div.task-card {
+            width: 250px;
+            height: 50px;
+            background: #2CA6FC;
+        }
+        .z-textbox-inplace {
+            color: white;
+            font-weight: bold;
+        }
+    </style>
 
     <window apply="com.github.wingyplus.todo.TodoComposer">
 
@@ -18,6 +25,7 @@
                 <textbox id="subject" rows="3" cols="50"/>
                 <button id="createTask" label="create task"/>
             </hbox>
+
             <vbox id="taskList">
             </vbox>
         </vlayout>
