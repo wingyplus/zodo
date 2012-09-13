@@ -33,8 +33,7 @@
                 <button id="createTask" label="create task"/>
             </hbox>
 
-            <vbox id="taskList">
-            </vbox>
+            <vbox id="taskList"/>
         </vlayout>
 
     </window>
