@@ -9,8 +9,15 @@
             background: #2CA6FC;
         }
         .z-textbox-inplace {
+            height: 20px;
             color: white;
+            font-size: 18px;
             font-weight: bold;
+        }
+        .task-done {
+            float: right;
+            margin-right: 4px;
+            color: white;
         }
     </style>
 
