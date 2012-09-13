@@ -22,11 +22,13 @@ class TodoComposer extends GrailsComposer {
         // TODO: create databinding when subject change domain class will change it too.
         $('#taskList').append {
             div(id: "task_${task.id}", sclass: 'task-card') {
+                label(id: "task_${task.id}_done", value: "x", sclass: "task-done")
                 textbox(id: "subject_${task.id}", value: task.subject, inplace: true, instant: true)
             }
         }
 
-        $("#task_${task.id}").on('close', {
+        $("#task_done_${task.id}").on('click', {
+            $("#task_${task.id}").detach()
             task.delete()
         })
 
@@ -34,7 +36,6 @@ class TodoComposer extends GrailsComposer {
         $("#task_${task.id}").link(task, [subject: "#subject_${task.id}"])
 
         $("#subject_${task.id}").on('change', {
-            task.subject = $("#subject_${task.id}").text()
             task.save()
         })
     }
